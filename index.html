@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emplacamento de Veículos × Presidentes do Brasil</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Emplacamento de Automóveis no Brasil</h1>
+    <p class="subtitle">
+      Total de veículos emplacados por ano (ANFAVEA) cruzado com os mandatos presidenciais.
+    </p>
+  </header>
+
+  <main class="layout">
+    <!-- Painel lateral: presidentes -->
+    <aside class="panel panel-presidents" aria-label="Presidentes">
+      <div class="panel-head">
+        <h2>Presidentes</h2>
+        <button id="btn-clear" class="btn btn-ghost" type="button">Limpar seleção</button>
+      </div>
+      <p class="hint">
+        Clique para filtrar o gráfico pelo mandato. Use o
+        <strong>Modo comparação</strong> para selecionar vários presidentes.
+      </p>
+
+      <label class="compare-toggle">
+        <input type="checkbox" id="toggle-compare" />
+        <span>Modo comparação (seleção múltipla)</span>
+      </label>
+
+      <ul id="president-list" class="president-list"></ul>
+    </aside>
+
+    <!-- Área principal: gráfico + comparação -->
+    <section class="panel panel-chart" aria-label="Gráfico">
+      <div class="chart-head">
+        <div>
+          <h2 id="chart-title">Todos os anos (1985–2025)</h2>
+          <p id="chart-subtitle" class="chart-subtitle">
+            Total geral de emplacamentos no período completo.
+          </p>
+        </div>
+        <div class="stat" id="stat-total">
+          <span class="stat-label">Total</span>
+          <span class="stat-value">—</span>
+        </div>
+      </div>
+
+      <div id="chart" class="chart" role="img" aria-label="Gráfico de barras verticais"></div>
+
+      <div id="legend" class="legend" aria-hidden="true"></div>
+
+      <!-- Comparação de períodos, dentro da seção do gráfico -->
+      <section class="compare-block" aria-label="Resultado da comparação">
+        <div class="compare-head">
+          <h3>Comparação de períodos</h3>
+          <span id="compare-count" class="compare-count"></span>
+        </div>
+        <p id="compare-empty" class="hint">
+          Selecione dois ou mais presidentes (use o <strong>Modo comparação</strong>) para ver
+          o ranking de emplacamentos por mandato.
+        </p>
+        <div id="compare-result" class="compare-result" hidden></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      Fontes: ANFAVEA (emplacamento) e dados públicos de mandatos presidenciais.
+      Cada ano é atribuído ao presidente em exercício no <strong>início</strong> do ano.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
